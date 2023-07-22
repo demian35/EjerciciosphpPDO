@@ -10,7 +10,7 @@ try{
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     echo "Conexion establecida con exito"."<br>";
     //preparamos una sentencia con el metodo prepare() en ligar de usar ? como en msqli usamos referencias :alumno
-   $consulta=$conn->prepare("SELECT * FROM alumnos WHERE idalumno>7");//preparamos la query y le especificamos que nos regrese los ids mayores a 7 con where
+   $consulta=$conn->prepare("SELECT * FROM alumnos WHERE idalumno<7 ORDER BY idalumno DESC");//preparamos la query y le especificamos que nos regrese los ids mayores a 7 con where
    $consulta->execute();//ejecutamos la query
 
    $resultados=$consulta->fetchAll();//regresamos los resultados de la query
